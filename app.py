@@ -2,6 +2,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def home():
     return """
@@ -9,8 +10,14 @@ def home():
     <p>Welcome to the application!</p>
 
     <a href="/login">Login</a>
+    <br><br>
     <a href="/profile">Profile</a>
     """
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -19,13 +26,14 @@ def home():
             return """
             <h2>Login Successful</h2>
             <p>Welcome, admin!</p>
+            <a href="/">Home</a>
             """
 
         return """
-<h2>Login Failed</h2>
-<p>Invalid username or password. Please check your credentials and try again.</p>
-<a href="/login">Try again</a>
-"""
+        <h2>Login Failed</h2>
+        <p>Invalid username or password. Please check your credentials and try again.</p>
+        <a href="/login">Try again</a>
+        """
 
     return """
     <h1>Login</h1>
@@ -45,7 +53,11 @@ def home():
         <button type="submit">Login</button>
 
     </form>
+
+    <br>
+    <a href="/">Home</a>
     """
+
 
 @app.route("/profile")
 def profile():
@@ -58,6 +70,7 @@ def profile():
 
     <a href="/">Home</a>
     """
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -2,11 +2,10 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
     return """
-    <h1>Sample Todo Application</h1>
+    <h1>Todo Management Application</h1>
     <p>Welcome to the application!</p>
     <a href="/login">Login</a>
     """

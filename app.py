@@ -26,10 +26,10 @@ def login():
             """
 
         return """
-        <h2>Login Failed</h2>
-        <p>Invalid username or password.</p>
-        <a href="/login">Try again</a>
-        """
+<h2>Login Failed</h2>
+<p>Invalid username or password. Please check your credentials and try again.</p>
+<a href="/login">Try again</a>
+"""
 
     return """
     <h1>Login</h1>

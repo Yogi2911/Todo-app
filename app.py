@@ -2,19 +2,15 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
     return """
-    <h1>Sample Todo Application</h1>
+    <h1>Todo Management Application</h1>
     <p>Welcome to the application!</p>
+
     <a href="/login">Login</a>
+    <a href="/profile">Profile</a>
     """
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -51,6 +47,17 @@ def login():
     </form>
     """
 
+@app.route("/profile")
+def profile():
+    return """
+    <h1>User Profile</h1>
+
+    <p>Name: Yogeswari</p>
+    <p>Role: Developer</p>
+    <p>Email: user@example.com</p>
+
+    <a href="/">Home</a>
+    """
 
 if __name__ == "__main__":
     app.run(debug=True)

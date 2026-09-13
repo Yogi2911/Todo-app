@@ -7,13 +7,10 @@ def home():
     return """
     <h1>Todo Management Application</h1>
     <p>Welcome to the application!</p>
+
     <a href="/login">Login</a>
+    <a href="/profile">Profile</a>
     """
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")

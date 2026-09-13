@@ -50,6 +50,17 @@ def login():
     </form>
     """
 
+@app.route("/profile")
+def profile():
+    return """
+    <h1>User Profile</h1>
+
+    <p>Name: Yogeswari</p>
+    <p>Role: Developer</p>
+    <p>Email: user@example.com</p>
+
+    <a href="/">Home</a>
+    """
 
 if __name__ == "__main__":
     app.run(debug=True)
